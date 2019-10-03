@@ -19,4 +19,3 @@ void main() {
 List words = Words.list; // you are given list of words
 
 // Create a stateful widget called `PasswordGenerator` here
-
