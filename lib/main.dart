@@ -1,6 +1,8 @@
 import 'dart:math';
+import 'package:english_words/english_words.dart';
 
 import 'package:day_4_random_word_assignment/words.dart';
+import 'package:recase/recase.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -20,18 +22,22 @@ class PasswordGenerator extends StatefulWidget {
 }
 
 class _PasswordGeneratorState extends State<PasswordGenerator> {
-  String text1, text2 , text3 ;
+  String text1, text2, text3;
 
   void generator() {
     Random rand = Random();
     int a, b, c;
-    a = 1 + rand.nextInt(words.length);
-    b = 1 + rand.nextInt(words.length);
-    c = 1 + rand.nextInt(words.length);
+    a = 1 + rand.nextInt(all.length);
+    b = 1 + rand.nextInt(all.length);
+    c = 1 + rand.nextInt(all.length);
+    ReCase rc1 = new ReCase(all[a]);
+    ReCase rc2 = new ReCase(all[b]);
+    ReCase rc3 = new ReCase(all[c]);
+
     setState(() {
-      text1 = words[a];
-      text2 = words[b];
-      text3 = words[c];
+      text1 = rc1.headerCase;
+      text2 = rc2.headerCase;
+      text3 = rc3.headerCase;
     });
   }
 
